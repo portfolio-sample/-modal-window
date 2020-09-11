@@ -1,0 +1,52 @@
+/* まずは基本的な動きの */
+
+
+body.fixed {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	left: 0;
+}
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.content{
+  margin: 0 auto;
+  padding: 40px;
+}
+
+/* モーダル本体 */
+.modal{
+  display: none;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+/* モーダルの背景 */
+.modal__bg{
+  background: rgba(0, 0, 0, 0.8);
+  height: 100vh;
+  position: absolute;
+  width: 100%;
+}
+
+/* モーダルの中身 */
+.modal__content{
+  height: 60%;/* スクロールに使う */
+  overflow-y: scroll; /* 高さを示したので、はみ出たら空くr－るできる */
+  width: 60%;
+  overflow-x: scroll; /* 高さを示したので、はみ出たら空くr－るできる */
+
+
+  background: white;
+  left: 50%;
+  padding: 40px;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}

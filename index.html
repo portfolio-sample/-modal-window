@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+  <link rel="stylesheet" href="base.css">
+  <script type="text/javascript" src="jQuery-3.5.1.min.js"></script>
+  <title>【練習用】モーダルウインドウ</title>
+</head>
+
+<body>
+  <div class="content">
+    <a href="#" class="js-modal-open" data-target="modal01">モーダルウィンドウ１を開く</a>
+    <a href="#" class="js-modal-open" data-target="modal02">モーダルウィンドウ２を開く</a>
+    <a href="#" class="js-modal-open" data-target="modal03">モーダルウィンドウ３を開く</a>
+    <img src="img/soccer.jpg" alt="">
+  </div>
+
+  <div id="modal01" class="modal js-modal">
+    <div class="modal__bg js-modal-close">
+    </div>
+      <div class="modal__content">
+        <p>ここにコンテンツ１が入ります。ここにコンテンツ１が入ります。ここにコンテンツ１が入ります。</p>
+        <img src="img/soccer.jpg" class="aaa">
+        <a href="#" class="js-modal-close">閉じる</a>
+      </div>
+  </div>
+
+  <div id="modal02" class="modal js-modal">
+    <div class="modal__bg js-modal-close">
+    </div>
+      <div class="modal__content">
+        <p>ここにコンテンツ２が入ります。ここにコンテンツ２が入ります。ここにコンテンツ２が入ります。</p>
+        <img src="img/soccer.jpg" class="aaa">
+        <a href="#" class="js-modal-close">閉じる</a>
+      </div>
+  </div>
+
+  <div id="modal03" class="modal js-modal">
+    <div class="modal__bg js-modal-close">
+    </div>
+      <div class="modal__content">
+        <p>ここにコンテンツ３が入ります。ここにコンテンツ３が入ります。ここにコンテンツ３が入ります。</p>
+        <img src="img/soccer.jpg" class="aaa">
+        <a href="#" class="js-modal-close">閉じる</a>
+      </div>
+  </div>
+
+
+  <script>
+  var scrollPosition;
+  $(function(){
+    // モーダルを開く
+    $('.js-modal-open').each(function(){
+      $(this).on('click', function(){
+        var target = $(this).data('target');
+        var modal = document.getElementById(target);
+
+        $(modal).fadeIn();
+        scrollPosition = $(window).scrollTop();
+        $('body').addClass('fixed').css({'top': -scrollPosition});
+        return false;
+      });
+    });
+    // モーダルを閉じる
+    $('.js-modal-close').on('click', function(){
+      $('body').removeClass('fixed').css({'top': 0});
+      window.scrollTo( 0 , scrollPosition );
+      $('.js-modal').fadeOut();
+      return false;
+    });
+  });
+  </script>
+</body>
+</html>
